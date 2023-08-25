@@ -21,7 +21,16 @@ nav a {
 .hero {
     text-align: center;
     padding: 5rem 0;
-    background-color: #f4f4f4;
+    background-image: url('/images/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .plans {
