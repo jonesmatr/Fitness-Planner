@@ -1,13 +1,16 @@
-// Heroku application name morning-journey-68779
-
 const express = require('express');
-const exphbs = require('express-handlebars');
+const handlebars = require('express-handlebars');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Set up Handlebars.js engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+const PORT = process.env.PORT || 3000;  // <-- Define the PORT variable here
+
+const hbs = handlebars.create({
+    defaultLayout: 'main',
+    extname: '.handlebars'
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Serve static files from the "public" directory
