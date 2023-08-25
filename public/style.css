@@ -77,9 +77,15 @@ nav a {
     padding: 2rem 0;
 }
 
+.plan .cta {
+    padding-left: 34px;
+}
+
 .plan img {
-    width: 100px;
-    height: 100px;
+    width: 200px;  /* Adjust this value to your desired width */
+    height: 200px; /* Adjust this value to your desired height */
+    object-fit: cover; /* This will ensure the image covers the width and height without distortion */
+    padding-left: 19px;
 }
 
 footer {
