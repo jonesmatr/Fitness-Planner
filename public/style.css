@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+}
+
+nav a {
+    margin-left: 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 0;
+    background-color: #f4f4f4;
+}
+
+.plans {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.plan img {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.cta {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta:hover {
+    background-color: #0056b3;
+}
