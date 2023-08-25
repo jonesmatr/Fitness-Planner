@@ -7,31 +7,69 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: #333;
+    align-items: center; /* This will vertically center the flex items */
+    padding: 2rem 2rem;
+    background-color: #6c8e7e;
     color: #fff;
 }
 
+
+
+.logo {
+    font-size: 2.8rem; 
+    margin: 0; /* Reset any margins */
+    padding-left: 50px; /* Reset any padding */
+    letter-spacing: 3px; /* To space out the letters in the logo */
+}
+
+
+nav {
+    margin-left: 10rem;
+    padding-right: 80px; /* Adjust this value to move the navigation items further to the right */
+}
+
+
 nav a {
-    margin-left: 1rem;
+    font-size: 1.8rem; 
+    margin-left: 4rem; 
     color: #fff;
     text-decoration: none;
 }
 
+
+
+.second-line {
+    margin-top: 15px; /* Adjust this value as needed */
+    display: block;
+}
+
+
 .hero {
-    text-align: center;
+    text-align: left; /* Align text to the left */
     padding: 5rem 0;
-    background-image: url('/images/Background.jpg');
-    background-size: cover;
-    background-position: center;
+    background-image: url('/images/Background.png');
+    background-size: 500px 271px; /* Set the background image to half its size */
+    background-position: 70% center; /* Move the background image to the right */
     background-repeat: no-repeat;
-    height: 100vh;
-    color: white;
+    height: 30vh;
+    color: rgb(10, 11, 30);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align content to the left */
+    padding-left: 10%; /* Add some padding to the left for spacing */
 }
+
+/* Make the main title bigger */
+.main-title {
+    font-size: 2.5rem;  /* Adjust this value to your preference */
+}
+
+/* Adjust the sub-text */
+.sub-text {
+    font-size: 1.2rem;  /* Adjust this value to your preference */
+}
+
 
 .plans {
     display: flex;
@@ -47,19 +85,47 @@ nav a {
 footer {
     padding: 1rem 2rem;
     background-color: #333;
-    color: #fff;
+    color: #832929;
     text-align: center;
 }
 
+/* Existing styles for the cta button */
+.button-container {
+    display: flex;
+    justify-content: center; /* This will center the buttons in their container */
+    align-items: center;
+}
+
 .cta {
-    padding: 0.5rem 1rem;
-    background-color: #007BFF;
-    color: #fff;
+    margin: 0 10px; 
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Blue color */
+    color: #fff; /* White text color */
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 .cta:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
+
+
+footer {
+    padding: 1rem 2rem;
+    background-color: #6c8e7e; /* Change this to your desired color */
+    color: #e2e2e2; /* This is the text color, adjust if needed */
+    text-align: center;
+}
+
+footer a {
+    color: #f8fafb; /* Blue color */
+}
+
+footer a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
