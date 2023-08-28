@@ -1,5 +1,3 @@
-// Heroku application name morning-journey-68779
-
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -17,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
   cookie: {
     maxAge: 300000,
     httpOnly: true,
@@ -27,8 +25,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
@@ -43,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+const forceDb = process.env.FORCE_DB === 'true'; // Use an environment variable
+
+sequelize.sync({ force: forceDb }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });

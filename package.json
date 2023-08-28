@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jonesmatr/Fitness-Planner/issues"
   },
-  "homepage": "https://github.com/jonesmatr/Fitness-Planner#readme"
+  "homepage": "https://github.com/jonesmatr/Fitness-Planner#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
