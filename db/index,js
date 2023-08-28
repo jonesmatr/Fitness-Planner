@@ -1,24 +1,24 @@
-const mysql = require('mysql');
+// const mysql = require('mysql');
 
-// Your local database configuration
-const localDbConfiguration = {
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'fitness_database'
-};
+// // Your local database configuration
+// const localDbConfiguration = {
+//   host: process.env.DB_HOST || 'localhost',
+//   user: process.env.DB_USER || 'root',
+//   password: process.env.DB_PASSWORD || '',
+//   database: process.env.DB_NAME || 'fitness_database'
+// };
 
-// Use JAWSDB if it's available, otherwise use local configuration
-const dbConfiguration = process.env.JAWSDB_URL ? process.env.JAWSDB_URL : localDbConfiguration;
+// // Use JAWSDB if it's available, otherwise use local configuration
+// const dbConfiguration = process.env.JAWSDB_URL ? process.env.JAWSDB_URL : localDbConfiguration;
 
-const connection = mysql.createConnection(dbConfiguration);
+// const connection = mysql.createConnection(dbConfiguration);
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('Error connecting to database:', err);
-    return;
-  }
-  console.log('Connected to database');
-});
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error('Error connecting to database:', err);
+//     return;
+//   }
+//   console.log('Connected to database');
+// });
 
 // Rest of your code
