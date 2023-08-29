@@ -13,7 +13,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
+// Explicitly set the views directory
+app.set('views', path.join(__dirname, 'views'));
 
 const sess = {
   secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
