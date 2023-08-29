@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const helpers = require('./utils/helpers');
+// const helpers = require('./utils/helpers');
 const { format_date } = require('./utils/helpers');
 const homeRoutes = require('./controllers/api/homeRoutes');
 
@@ -43,7 +43,7 @@ const hbs = exphbs.create({
   },
   defaultLayout:'main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
-  partialsDir: path.join(__dirname, 'views/partials/')
+  partialsDir: path.join(__dirname, 'views/partials')
 });
 
 // Inform Express.js on which template engine to use

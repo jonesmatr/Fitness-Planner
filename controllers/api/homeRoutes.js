@@ -2,19 +2,17 @@
 
 const router = require('express').Router();
 // const { Project, User } = require('../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
   try {
     // Just render the 'main' template
-    res.render('main');
+    res.render('main'); //Something might be wrong with this 
   } catch (err) {
     console.error("An error occurred:", err); // Debugging: Print the error
     res.status(500).json(err);
   }
 });
-
-module.exports = router;
 
 
 router.get('/project/:id', async (req, res) => {
