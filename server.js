@@ -12,14 +12,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ 
-  helpers: {
-    format_date
-  },
-  defaultLayout:'main',
-  partialsDir: path.join(__dirname, 'views/partials/')
-});
+
 
 const sess = {
   secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
@@ -38,6 +31,15 @@ const sess = {
 
 app.use(session(sess));
 
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ 
+  helpers: {
+    format_date
+  },
+  defaultLayout:'main',
+  partialsDir: path.join(__dirname, 'views/partials/')
+});
+
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -47,7 +49,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Activate specific routes
+app.use('/', homeRoutes);
+
+// Activate routes
 app.use(routes);
+
+// Error handling middleware (Add this part)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 
 sequelize.sync({ force: false }).then(() => {
