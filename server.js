@@ -10,6 +10,9 @@ const homeRoutes = require('./controllers/api/homeRoutes');
 const sequelize = require('./config/connections');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Log the current directory
+console.log("Current directory:", __dirname);
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
