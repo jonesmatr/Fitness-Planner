@@ -10,35 +10,28 @@ const sequelize = require('./config/connections');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Log the current directory
-console.log("Current directory:", __dirname);
 
 const app = express();
-
-console.log("Directory:", __dirname);
-console.log("Path to layouts:", path.join(__dirname, 'views/layouts'));
-
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
 const sess = {
-  secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
-  cookie: {
-    maxAge: 300000,
-    httpOnly: true,
-    secure: false,
-    sameSite: 'strict',
-  },
+  secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ 
@@ -55,16 +48,17 @@ const hbs = exphbs.create({
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
+
 app.set('view engine', 'handlebars');
 
-
+app.set('views', './views');
 
 
 // Activate specific routes
-app.use('/', homeRoutes);
+// app.use('/', homeRoutes);
 
 // // Activate routes
-// app.use(routes);
+app.use(routes);
 
 // Error handling middleware (Add this part)
 app.use((err, req, res, next) => {

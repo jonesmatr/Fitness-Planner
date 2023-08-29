@@ -7,7 +7,7 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
   try {
     // Just render the 'main' template
-    res.render('main'); //Something might be wrong with this 
+    res.render('homepage'); //Something might be wrong with this 
   } catch (err) {
     console.error("An error occurred:", err); // Debugging: Print the error
     res.status(500).json(err);
