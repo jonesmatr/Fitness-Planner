@@ -12,7 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ 
+  helpers: {
+    format_date
+  },
+  defaultLayout:'main',
+  partialsDir: path.join(__dirname, 'views/partials/')
+});
 
 const sess = {
   secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
@@ -34,10 +40,6 @@ app.use(session(sess));
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
-app.get('/', (req, res) => {
-  res.render('home');
-});
 
 
 app.use(express.json());
