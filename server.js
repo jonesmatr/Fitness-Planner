@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const { format_date } = require('./utils/helpers');
-const homeRoutes = require('./controllers/homeRoutes');
+const homeRoutes = require('./controllers/api/homeRoutes');
 
 const sequelize = require('./config/connections');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
