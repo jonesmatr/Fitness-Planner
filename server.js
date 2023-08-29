@@ -61,10 +61,10 @@ app.set('views', './views');
 app.use(routes);
 
 // Error handling middleware (Add this part)
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send('Something broke!');
+// });
 
 
 sequelize.sync().then(() => {
