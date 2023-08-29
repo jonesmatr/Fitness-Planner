@@ -17,19 +17,14 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));  // Place this line after initializing the app
 
 // Basic route to render the main.handlebars
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
-
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
 app.get('/signup', (req, res) => {
     res.render('signup');
+});
+
+app.get('/', (req, res) => {
+    res.render('index');
 });
