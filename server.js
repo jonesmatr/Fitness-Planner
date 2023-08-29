@@ -58,8 +58,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Activate specific routes
 app.use('/', homeRoutes);
 
-// Activate routes
-app.use(routes);
+// // Activate routes
+// app.use(routes);
 
 // Error handling middleware (Add this part)
 app.use((err, req, res, next) => {
@@ -68,6 +68,6 @@ app.use((err, req, res, next) => {
 });
 
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
