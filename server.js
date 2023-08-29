@@ -6,7 +6,6 @@ const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
 const { format_date } = require('./utils/helpers');
 const homeRoutes = require('./controllers/api/homeRoutes');
-
 const sequelize = require('./config/connections');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -14,10 +13,15 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 console.log("Current directory:", __dirname);
 
 const app = express();
+
+console.log("Directory:", __dirname);
+console.log("Path to layouts:", path.join(__dirname, 'views/layouts'));
+
 const PORT = process.env.PORT || 3001;
 
-// Explicitly set the views directory
-app.set('views', path.join(__dirname, 'views'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const sess = {
   secret: process.env.SESSION_SECRET || 'Super secret secret', // Use an environment variable
@@ -41,19 +45,20 @@ const hbs = exphbs.create({
   helpers: {
     format_date
   },
-  defaultLayout:'main',
+  defaultLayout:'layouts/main',
   layoutsDir: path.join(__dirname, 'views/layouts'),
   partialsDir: path.join(__dirname, 'views/partials')
 });
+
+// Explicitly set the views directory
+// app.set('views', path.join(__dirname, 'views'));
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Activate specific routes
 app.use('/', homeRoutes);
