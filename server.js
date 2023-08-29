@@ -25,3 +25,11 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
