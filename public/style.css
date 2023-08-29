@@ -135,6 +135,8 @@ footer a:hover {
     color: #0056b3; /* Darker blue on hover */
 }
 
+/*this is for log in and sign up page*/
+
 .login-section, .signup-section {
     width: 80%;
     max-width: 500px;
