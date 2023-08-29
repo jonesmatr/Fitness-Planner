@@ -38,7 +38,7 @@ const hbs = exphbs.create({
   helpers: {
     format_date
   },
-  defaultLayout:'layouts/main',
+  defaultLayout:'layouts/homepage',
   layoutsDir: path.join(__dirname, 'views/layouts'),
   partialsDir: path.join(__dirname, 'views/partials')
 });
@@ -61,10 +61,10 @@ app.set('views', './views');
 app.use(routes);
 
 // Error handling middleware (Add this part)
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send('Something broke!');
-// });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 
 
 sequelize.sync().then(() => {
