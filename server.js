@@ -38,9 +38,9 @@ const hbs = exphbs.create({
   helpers: {
     format_date
   },
-  defaultLayout:'layouts/homepage',
-  layoutsDir: path.join(__dirname, 'views/layouts'),
-  partialsDir: path.join(__dirname, 'views/partials')
+  defaultLayout:'homepage',
+  layoutsDir: path.join(__dirname, 'views/layouts/'),
+  partialsDir: path.join(__dirname, 'views/partials/')
 });
 
 // Explicitly set the views directory
